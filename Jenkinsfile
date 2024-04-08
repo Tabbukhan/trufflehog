@@ -20,6 +20,10 @@ pipeline {
                 
             }
         }
-    
+    stage('Grype Scane') {
+        steps {
+          sh 'grype dir:. --scope AllLayers'
+        }
+    }
   }
 }
