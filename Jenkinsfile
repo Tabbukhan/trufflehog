@@ -16,7 +16,13 @@ pipeline {
             }
             steps {
                 //sh 'ggshield secret scan ci'
-                sh 'ggshield secret scan --show-secrets'
+                script {
+                    // Execute ggshield command to scan for secrets
+                    def scanOutput = sh(script: 'ggshield scan --show-secrets --repo-path .', returnStdout: true).trim()
+
+                    // Display the scan output
+                    echo scanOutput
+                }
                 
             }
         }
