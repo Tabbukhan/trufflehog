@@ -19,7 +19,7 @@ pipeline {
                 sh 'ggshield secret scan --show-secrets ci'
                 script {
                     // Execute ggshield command to scan for secrets
-                    def scanOutput = sh(script: 'ggshield scan --show-secrets --repo-path .', returnStdout: true).trim()
+                    def scanOutput = sh(script: 'ggshield secret scan --show-secrets --repo-path .', returnStdout: true).trim()
 
                     // Display the scan output
                     echo scanOutput
